@@ -1,16 +1,12 @@
 sudo: false
 
-notifications:
-  email: false
-  
-env:
-  global:
-  - MAVEN_OPTS="-Xmx2G -XX:MaxPermSize=512m"
-  
-cache:
-  directories:
-  - "$HOME/.m2"
-  
-anguage: java
+language: java
+
 jdk:
   - oraclejdk8
+
+install: mvn install 
+
+cache:
+  directories:
+  - $HOME/.m2
