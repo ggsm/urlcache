@@ -25,8 +25,10 @@ public final class URLCacheFactory {
 	private URLCacheFactory() {
 	}
 
-	public static LoadingCache<URLCacheKey, CachedElement> create(final File localCacheFolder) {
-		return CacheBuilder.newBuilder().expireAfterAccess(1, TimeUnit.MINUTES)
-				.build(new URLCacheLoader(localCacheFolder));
+	public static URLCache create(final File localCacheFolder) {
+		final LoadingCache<URLCacheKey, CachedElement> cache = CacheBuilder.newBuilder()
+				.expireAfterAccess(1, TimeUnit.MINUTES).build(new URLCacheLoader(localCacheFolder));
+
+		return cache::get;
 	}
 }
