@@ -42,7 +42,7 @@ public final class CachedElement implements Serializable {
 		return (this.validUntil == null) || LocalDate.now().isBefore(this.validUntil);
 	}
 
-	public InputStream openInputStream() {
+	public InputStream openStream() {
 		return new ByteArrayInputStream(this.bytes);
 	}
 

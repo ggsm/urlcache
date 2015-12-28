@@ -18,7 +18,7 @@ public class URLCacheLoaderTest {
 		final URLCacheLoader loader = new URLCacheLoader(this.cacheFolder.newFolder());
 		final CachedElement element = loader.load(this.mockKey("foo"));
 
-		Assert.assertEquals("foo", IOUtils.toString(element.openInputStream()));
+		Assert.assertEquals("foo", IOUtils.toString(element.openStream()));
 	}
 
 	@Test
@@ -27,7 +27,7 @@ public class URLCacheLoaderTest {
 		loader.load(this.mockKey("foo"));
 		final CachedElement element = loader.load(this.mockKey("bar"));
 
-		Assert.assertEquals("foo", IOUtils.toString(element.openInputStream()));
+		Assert.assertEquals("foo", IOUtils.toString(element.openStream()));
 	}
 
 	private URLCacheKey mockKey(final String content) throws IOException {
